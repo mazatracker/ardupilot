@@ -159,6 +159,7 @@ public:
     friend class ModeQAutotune;
     friend class ModeTakeoff;
     friend class ModeThermal;
+    friend class ModeMoth; // APKM
     friend class ModeLoiterAltQLand;
 
     Plane(void);
@@ -267,6 +268,7 @@ private:
     ModeGuided mode_guided;
     ModeInitializing mode_initializing;
     ModeManual mode_manual;
+    ModeMoth mode_moth; // APKM
 #if HAL_QUADPLANE_ENABLED
     ModeQStabilize mode_qstabilize;
     ModeQHover mode_qhover;
@@ -809,6 +811,7 @@ private:
         QRTL            = 1U << 9,
         QLAND           = 1U << 10,
         QLOITER         = 1U << 11,
+        MOTH            = 1U << 12, //APKM 
     };
     struct TerrainLookupTable{
        Mode::Number mode_num;

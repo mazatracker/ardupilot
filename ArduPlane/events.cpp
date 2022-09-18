@@ -77,6 +77,7 @@ void Plane::failsafe_short_on_event(enum failsafe_state fstype, ModeReason reaso
     }
     case Mode::Number::AVOID_ADSB:
     case Mode::Number::GUIDED:
+    case Mode::Number::MOTH: //APKM
     case Mode::Number::LOITER:
     case Mode::Number::THERMAL:
         if (g.fs_action_short != FS_ACTION_SHORT_BESTGUESS) { // if acton = 0(BESTGUESS) this group of modes take no action
@@ -181,7 +182,8 @@ void Plane::failsafe_long_on_event(enum failsafe_state fstype, ModeReason reason
             set_mode(mode_rtl, reason);
         }
         break;
-
+    
+    case Mode::Number::MOTH: //APKM
     case Mode::Number::RTL:
 #if HAL_QUADPLANE_ENABLED
     case Mode::Number::QLAND:
